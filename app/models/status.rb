@@ -453,7 +453,8 @@ class Status < ApplicationRecord
   def marked_local_only?
     # match both with and without U+FE0F (the emoji variation selector)
     # yakumo-saki changed. include eye -> local_only
-    /#{local_only_emoji}/.match?(content)
+    #/#{local_only_emoji}/.match?(content)
+    content.include?(local_only_emoji)
   end
 
   def local_only_emoji
